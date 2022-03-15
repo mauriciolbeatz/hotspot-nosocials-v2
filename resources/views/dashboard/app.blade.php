@@ -53,11 +53,6 @@
             @guest @if (Route::has('login'))  @endif @else {{ Auth::user()->name }} @endguest <img class="img-xs rounded-circle" src="{{asset('dashboard/images/user.png')}}" alt="Profile image"> </a>
             @guest @if (Route::has('login')) @endif @else
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-              <div class="dropdown-header text-center">
-
-                <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-                <p class="fw-light text-muted mb-0">allenmoreno@gmail.com</p>
-              </div>
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
 
@@ -94,7 +89,7 @@
             @endguest
 
             @auth
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{ route('home') }}">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -119,6 +114,7 @@
 
                 @auth
                 <li class="nav-item"> <a class="nav-link" href="{{route('styles')}}">Estilo base</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('logo') }}">Logotipos</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('show-img')}}">Primer Slider</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('show-img2')}}">Segundo Slider</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('show-img4')}}">Tercer Slider</a></li>
@@ -221,6 +217,20 @@
   <script src="{{asset('dashboard/js/template.js')}}"></script>
   <script src="{{asset('dashboard/js/settings.js')}}"></script>
   <script src="{{asset('dashboard/js/todolist.js')}}"></script>
+
+  <script src="{{asset('dashboard/js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{asset('dashboard/js/dataTables.bootstrap5.min.js')}}"></script>
+
+  <script>
+    $(document).ready(function() {
+    $('#datatable').DataTable( {
+        "language": {
+            "url": "{{asset('dashboard/json/esdatatable.json')}}"
+        }
+    } );
+} );
+</script>
+
   <!-- endinject -->
   <!-- Custom js for this page-->
   <!-- End custom js for this page-->

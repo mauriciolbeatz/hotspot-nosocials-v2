@@ -47,7 +47,11 @@
         <div class="box-collapse-wrap form">
             <div class="title-box-d">
                 <center>
-                    <img src="{{asset('customer/img/logo_beenet.png')}}" alt="" width="110px; "  style="margin-left:-100px">
+                @foreach ($logo as $logos)
+                @if($logos->name == 'logo')
+                <img src="{{asset('storage/logo')}}/{{$logos->file_path}}" class="img-fluid" width="110px; "  style="margin-left:-100px" alt="logo">
+                @endif
+                @endforeach
                 </center>
             </div>
 
@@ -98,7 +102,13 @@
         <span></span>
         <span></span>
       </button>
-            <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
+            <a class="navbar-brand text-brand" href="index.html">
+            @foreach ($logo as $logos)
+                @if($logos->name == 'logo')
+                <img src="{{asset('storage/logo')}}/{{$logos->file_path}}" class="img-fluid" width="65em" height="65em" alt="logo">
+                @endif
+                @endforeach
+            </a>
 
             <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
                 <ul class="navbar-nav">

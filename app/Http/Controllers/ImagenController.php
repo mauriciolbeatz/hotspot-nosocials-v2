@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Models\Styles;
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\Logos;
 
 class ImagenController extends Controller
 {
@@ -79,10 +80,11 @@ public function showimg4()
 public function showimgCustomer()
 {
     //
+    $logo = Logos::all();
     $image = Image::all();
     $color = Styles::all();
   //
-    return view('customer.template')->with('image',$image)->with('color',$color);
+    return view('customer.template')->with('image',$image)->with('color',$color)->with('logo',$logo);
 }
 
 }
