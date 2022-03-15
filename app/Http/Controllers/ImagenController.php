@@ -13,10 +13,10 @@ class ImagenController extends Controller
 {
     //
     public function uploadImg(Request $request){
-
+    
         $request->validate([
             'file' => 'required|mimes:jpeg,bmp,png,webp', // validamos los tipos de imagen permitidos
-            'description' => 'required|max:1000',
+            'description' => 'max:1000',
 
         ]);
 
@@ -29,16 +29,21 @@ class ImagenController extends Controller
         }
 
         
+
+        
         $file = $request->file;
         $file->store('public/slider');
         $date = Carbon::now();
         $dates = $date->subHours(6);
-       # dd($file);
+        #dd($file);
             $image = Image::find($id);
-    #        $color->name = $request->name;
-            if(!$request->description == null){
+        #$color->name = $request->name;
+
+
+        
+            
             $image->text = $request->description;
-            }
+            
             $image->file_path = $file->hashName();
             $image->updated_at = $dates;
             $image->save();

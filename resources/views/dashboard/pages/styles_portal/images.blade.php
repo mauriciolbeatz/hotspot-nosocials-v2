@@ -73,6 +73,7 @@
         <div class="form-group">
         <input type="hidden" class="form-control" id="id" name="id"  value="{{$i}}">
         <input type="hidden" class="form-control" id="name" name="name"  value="introcarousel{{$i}}">
+        <input type="hidden" class="form-control" id="description" name="description"  value="introcarousel{{$i}}">
         </div>
         <div class="form-group">
     <label for="name">Imagen</label>
