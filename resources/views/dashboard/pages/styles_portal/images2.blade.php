@@ -3,7 +3,7 @@
 
 @section('content')
 @error('file')
-    <div class="alert alert-danger">{{$message}}</div>
+    
     {{! RealRashid\SweetAlert\Facades\Alert::error( $message ) }}
     
 @enderror

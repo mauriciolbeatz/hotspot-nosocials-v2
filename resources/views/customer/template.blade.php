@@ -266,7 +266,11 @@
                                         </div>
                                         <div class="testimonials-content">
                                             <p class="testimonial-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium debitis hic ber quibusdam voluptatibus officia expedita corpori.
+                                            @foreach($image as $imagenes)
+                                            @if($imagenes->name == "longcarousel1")
+                                            {{$imagenes->text}}
+                                            @endif
+                                            @endforeach
                                             </p>
                                         </div>
                                         <div class="testimonial-author-box">
@@ -275,8 +279,7 @@
                                         <img src="{{asset('storage/slider/')}}/{{$imagenes->file_path}}" alt="" class="testimonial-avatar">
                                         @endif
                                         @endforeach
-                                            
-                                            <h5 class="testimonial-author">Albert & Erika</h5>
+                                         
                                         </div>
                                     </div>
                                 </div>
@@ -300,7 +303,11 @@
                                         </div>
                                         <div class="testimonials-content">
                                             <p class="testimonial-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium debitis hic ber quibusdam voluptatibus officia expedita corpori.
+                                            @foreach($image as $imagenes)
+                                            @if($imagenes->name == "longcarousel2")
+                                            {{$imagenes->text}}
+                                            @endif
+                                            @endforeach
                                             </p>
                                         </div>
                                         <div class="testimonial-author-box">
@@ -309,7 +316,7 @@
                                         <img src="{{asset('storage/slider/')}}/{{$imagenes->file_path}}" alt="" class="testimonial-avatar">
                                         @endif
                                         @endforeach
-                                            <h5 class="testimonial-author">Pablo & Emma</h5>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -333,7 +340,11 @@
                                         </div>
                                         <div class="testimonials-content">
                                             <p class="testimonial-text">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, cupiditate ea nam praesentium debitis hic ber quibusdam voluptatibus officia expedita corpori.
+                                            @foreach($image as $imagenes)
+                                            @if($imagenes->name == "longcarousel3")
+                                            {{$imagenes->text}}
+                                            @endif
+                                            @endforeach
                                             </p>
                                         </div>
                                         <div class="testimonial-author-box">
@@ -342,7 +353,7 @@
                                         <img src="{{asset('storage/slider/')}}/{{$imagenes->file_path}}" alt="" class="testimonial-avatar">
                                         @endif
                                         @endforeach
-                                            <h5 class="testimonial-author">Pablo & Emma</h5>
+                                            
                                         </div>
                                     </div>
                                 </div>

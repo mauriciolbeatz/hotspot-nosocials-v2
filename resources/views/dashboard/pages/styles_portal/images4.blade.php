@@ -3,7 +3,12 @@
 
 @section('content')
 @error('file')
-    <div class="alert alert-danger">{{$message}}</div>
+   
+    {{! RealRashid\SweetAlert\Facades\Alert::error( $message ) }}
+    
+@enderror
+@error('description')
+   
     {{! RealRashid\SweetAlert\Facades\Alert::error( $message ) }}
     
 @enderror
@@ -71,6 +76,10 @@
         @csrf
         <div class="form-group">
         <input type="hidden" class="form-control" id="id" name="id"  value="{{$i}}">
+        </div>
+        <div class="form-group">
+    <label for="name">Descripcion</label>
+    <input  type="text" class="form-control" id="description" name="description" >
         </div>
         <div class="form-group">
     <label for="name">Imagen</label>

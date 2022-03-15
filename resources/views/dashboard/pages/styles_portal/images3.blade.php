@@ -3,7 +3,7 @@
 
 @section('content')
 @error('file')
-    <div class="alert alert-danger">{{$message}}</div>
+    
     {{! RealRashid\SweetAlert\Facades\Alert::error( $message ) }}
     
 @enderror
@@ -72,6 +72,7 @@
         <div class="form-group">
         <input type="hidden" class="form-control" id="id" name="id"  value="{{$i}}">
         </div>
+        
         <div class="form-group">
     <label for="name">Imagen</label>
     <input accept="image/png,image/jpeg,image/webp"  type="file" class="form-control" id="file" name="file" >

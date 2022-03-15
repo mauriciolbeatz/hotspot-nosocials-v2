@@ -15,7 +15,9 @@ class ImagenController extends Controller
     public function uploadImg(Request $request){
 
         $request->validate([
-            'file' => 'required|mimes:jpeg,bmp,png,webp' // validamos los tipos de imagen permitidos
+            'file' => 'required|mimes:jpeg,bmp,png,webp', // validamos los tipos de imagen permitidos
+            'description' => 'required|max:1000',
+
         ]);
 
         if ($request->hasFile('file')) {
@@ -34,6 +36,9 @@ class ImagenController extends Controller
        # dd($file);
             $image = Image::find($id);
     #        $color->name = $request->name;
+            if(!$request->description == null){
+            $image->text = $request->description;
+            }
             $image->file_path = $file->hashName();
             $image->updated_at = $dates;
             $image->save();
