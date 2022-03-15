@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 15-03-2022 a las 18:15:33
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 7.4.14
+-- Host: 127.0.0.1
+-- Generation Time: Mar 15, 2022 at 09:36 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd_cms_tuscania`
+-- Database: `bd_cms_tuscania`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `customers`
+-- Table structure for table `customers`
 --
 
 CREATE TABLE `customers` (
@@ -39,7 +39,7 @@ CREATE TABLE `customers` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `failed_jobs`
+-- Table structure for table `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -55,39 +55,40 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `images`
+-- Table structure for table `images`
 --
 
 CREATE TABLE `images` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `file_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `images`
+-- Dumping data for table `images`
 --
 
-INSERT INTO `images` (`id`, `name`, `file_path`, `created_at`, `updated_at`) VALUES
-(1, 'introcarousel1', 'mkRbjkXPBUjfLRylIoRZXmzzPpkAUvRwqXp2wwHr.png', NULL, '2022-03-15 16:49:55'),
-(2, 'introcarousel2', '5KuCP1C3MytTKzCsMmT43A2Ng1jUEBHEiRyVjVaG.png', NULL, '2022-03-15 16:50:49'),
-(3, 'introcarousel3', 'yKTBLLB2BxryOK4IR9YGJd8HU0jdPn6zropfaTYW.png', NULL, '2022-03-15 16:50:56'),
-(4, 'secondcarousel1', 'o7F2WxDlEC7MEx8MuHca7hBe2Ueq2T6tbCaoLreN.jpg', NULL, '2022-03-15 20:55:25'),
-(5, 'secondcarousel2', 'GZNoVx8a5Uq0y3YqMM9Cn3EqFIOk56TnfpmbOYuI.webp', NULL, '2022-03-15 20:55:32'),
-(6, 'secondcarousel3', 'qwlXnX0IZnzc6zyTFMUiEt0yNOoedZCwqLh91EFa.webp', NULL, '2022-03-15 20:55:40'),
-(8, 'footercarousel1', 'CWjmDUufkFBLJmEfVXLw2CiOkgIzfX00UDulKyLa.webp', NULL, '2022-03-15 03:30:17'),
-(9, 'footercarousel2', 'LmD30A1JQWCTwcrYtMHsxwscwTNBqN5WgtW7mwQZ.webp', NULL, '2022-03-15 03:30:23'),
-(10, 'footercarousel3', '6yANB41fOT40sZnv8nEqJjck1pUj7g6b7ERUYi9n.jpg', NULL, '2022-03-15 03:30:32'),
-(11, 'longcarousel1', 'DwouDOuKNzM36Mmu2Keq8lNuIbb6MLlqfmpEx5qx.png', NULL, '2022-03-15 11:06:24'),
-(12, 'longcarousel2', 'Jo8JcchFQ5CruwYVR7A0llURnJbKbBzm5jNcBkOJ.jpg', NULL, '2022-03-15 03:50:29'),
-(13, 'longcarousel3', 'eEZplYZ6174iGUwYjlSdFFXOeNxjJDFsoRiLRA6C.jpg', NULL, '2022-03-15 03:50:36');
+INSERT INTO `images` (`id`, `name`, `file_path`, `text`, `created_at`, `updated_at`) VALUES
+(1, 'introcarousel1', 'YzUSCk5QNp7pKB9TtQu9fElCVAJ2BzFT5GrII4FA.jpg', NULL, NULL, '2022-03-15 11:53:44'),
+(2, 'introcarousel2', 'Tsc7P9oA1asZYgUICTkAqwuerwiTaDqr43JjuTKw.webp', NULL, NULL, '2022-03-15 14:12:46'),
+(3, 'introcarousel3', '0oyTgimlFQPXK3VIJuo5b5mlVky0Ft0mZxjgs0Hk.jpg', NULL, NULL, '2022-03-15 14:12:53'),
+(4, 'secondcarousel1', 'LPyc7tlcx95LuZKEAPpvuiTNjnrxS8gxcsmoaGSD.webp', NULL, NULL, '2022-03-15 14:13:40'),
+(5, 'secondcarousel2', 'lTmCRtseKh3FZ5LUU8WoM3o3a1RyumnQmmHCHIef.webp', NULL, NULL, '2022-03-15 14:13:46'),
+(6, 'secondcarousel3', '9j6ilJtVNtw32fnPvN5amNnmUmerImjyrzkWcpaq.jpg', NULL, NULL, '2022-03-15 14:13:54'),
+(8, 'footercarousel1', 'HjTdAbI4851V3VDAaM57UcmA5FyGuijybFRjoMSg.jpg', NULL, NULL, '2022-03-15 14:15:13'),
+(9, 'footercarousel2', '039MLP4q25LYyFEN29G8H9qar4TFgQDysktoHRHe.jpg', NULL, NULL, '2022-03-15 14:15:19'),
+(10, 'footercarousel3', 'Mtp9aRU9R1cr57XgbOjntsIvCfmpGaNbYFTt7GIe.jpg', NULL, NULL, '2022-03-15 14:15:25'),
+(11, 'longcarousel1', '6c0jKNh9xg5kRTrNQGXc4SUhAjwSF1GhYke7ur5m.jpg', 'Este texto es prueba', NULL, '2022-03-15 14:22:09'),
+(12, 'longcarousel2', 'edPexce8VEBygmHuSJp9QTzZ07wXIJTnUiAFBNP4.jpg', '“Tú puedes contar conmigo como yo puedo contar contigo” es el lema representativo de la última iniciativa que la popular compañía ha preparado para todos nosotros en aras de establecer una comparación entre el amor y férrea unión entre los padres y sus hijos, con el ambiente agradable y cálido que podemos vivir en los ...', NULL, '2022-03-15 14:30:48'),
+(13, 'longcarousel3', 'qVQnXosl7pXL7fuabgEuBCOmw3OLvlbIEgwK1TtS.jpg', 'Este texto es prueba', NULL, '2022-03-15 14:28:56');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `logos`
+-- Table structure for table `logos`
 --
 
 CREATE TABLE `logos` (
@@ -99,16 +100,16 @@ CREATE TABLE `logos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `logos`
+-- Dumping data for table `logos`
 --
 
 INSERT INTO `logos` (`id`, `name`, `file_path`, `created_at`, `updated_at`) VALUES
-(1, 'logo', 'mfjEB4igtcqWYFhwDRGshCcVUkyrg5lnpqrFdJ3c.jpg', '2022-03-15 16:28:17', '2022-03-15 11:05:11');
+(1, 'logo', 'wUbo3U19MIXl9fa3fpaoOwyxjATrNWlQstVfrY5M.png', '2022-03-15 16:28:17', '2022-03-15 11:28:12');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -118,7 +119,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -134,7 +135,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `password_resets`
+-- Table structure for table `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -146,7 +147,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `personal_access_tokens`
+-- Table structure for table `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -164,7 +165,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `styles`
+-- Table structure for table `styles`
 --
 
 CREATE TABLE `styles` (
@@ -176,18 +177,18 @@ CREATE TABLE `styles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `styles`
+-- Dumping data for table `styles`
 --
 
 INSERT INTO `styles` (`id`, `name`, `color`, `created_at`, `updated_at`) VALUES
-(1, 'navbarColor', '#b3ffad', NULL, '2022-03-15 22:40:25'),
-(2, 'bodyColor', '#ffffff', NULL, '2022-03-15 22:40:25'),
-(3, 'footerColor', '#80e5ff', NULL, '2022-03-15 22:40:25');
+(1, 'navbarColor', '#fb00ff', NULL, '2022-03-15 11:54:42'),
+(2, 'bodyColor', '#ffffff', NULL, '2022-03-15 11:54:42'),
+(3, 'footerColor', '#80e5ff', NULL, '2022-03-15 11:54:42');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -202,56 +203,56 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Daniel Márquez', 'daniel.marquez@beenet.email', NULL, '$2y$10$je/COlfciPWJV69xTzhyiez7bCYxDPSoaOSmm3n/hij9WyfZScslm', '', '2022-03-08 04:27:22', '2022-03-11 04:35:40');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `customers`
+-- Indexes for table `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `customers_email_unique` (`email`);
 
 --
--- Indices de la tabla `failed_jobs`
+-- Indexes for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indices de la tabla `images`
+-- Indexes for table `images`
 --
 ALTER TABLE `images`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `logos`
+-- Indexes for table `logos`
 --
 ALTER TABLE `logos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `password_resets`
+-- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indices de la tabla `personal_access_tokens`
+-- Indexes for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -259,69 +260,69 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indices de la tabla `styles`
+-- Indexes for table `styles`
 --
 ALTER TABLE `styles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `customers`
+-- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `failed_jobs`
+-- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `images`
+-- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT de la tabla `logos`
+-- AUTO_INCREMENT for table `logos`
 --
 ALTER TABLE `logos`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `personal_access_tokens`
+-- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `styles`
+-- AUTO_INCREMENT for table `styles`
 --
 ALTER TABLE `styles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

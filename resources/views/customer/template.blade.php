@@ -44,7 +44,7 @@
     <!--/ Form Search Star /-->
     <div class="box-collapse">
         <div class="title-box-d">
-            <h3 class="title-d">Registrarse</h3>
+            <h3 class="title-d">Registrate para navegar</h3>
         </div>
 
         <span class="close-box-collapse right-boxed bi bi-x"></span>
@@ -102,9 +102,7 @@
     @endforeach
         <div class="container">
             <button  class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+       
       </button>
             <a class="navbar-brand text-brand" href="index.html">
             @foreach ($logo as $logos)
@@ -121,9 +119,9 @@
                 </ul>
             </div>
 
-            <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01">
-        <i class="bi bi-search"></i>
-      </button>
+            <button type="button" class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" style = "border-radius:25px;">
+            <h6>Crear cuenta</h6> 
+            </button>
 
         </div>
     </nav>
