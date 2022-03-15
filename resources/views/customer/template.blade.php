@@ -24,7 +24,11 @@
 
     <!-- Template Main CSS File -->
     <link href="{{asset('customer/css/style.css')}}" rel="stylesheet">
-
+    <style>
+        .overlay-a {
+            background: none;
+        }
+    </style>
     <!-- =======================================================
   * Template Name: EstateAgency - v4.7.0
   * Template URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
