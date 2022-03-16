@@ -22,7 +22,7 @@ class CustomerController extends Controller
             $customer->phone = $incomming['phone'];
             $customer->email = $incomming['email'];
     #        $customer->save();
-            alert()->success('Usuario creado','Usuario creado exitosamente');
+            
              //Add user mk
         
             //Router API  conection
@@ -35,12 +35,13 @@ class CustomerController extends Controller
             if ($API->connect($ipMK, $userMK, $passwordMK)) { #Conection API
                 #Add user in hotspot
                 $ARRAY2 = $API->comm("/ip/hotspot/user/add", array(
-                "name" => 'prueba',
-                "password" => 'prueba',
+                "name" => $incomming['email'],
+                "password" => $incomming['email'],
               //  "profile" => $incoming['description'],
-                "comment" => 'hola mundo',
+                "comment" => 'Hotspot tuscania',
                 "server" => "hotspot1"));
             }
+            alert()->success('Usuario creado','Usuario creado exitosamente');
            return back();
             //dd("Usuario agregado exitosamente");
 
