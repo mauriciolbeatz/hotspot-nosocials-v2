@@ -166,7 +166,7 @@
 
                 @auth
                 <li class="nav-item"> <a class="nav-link" href="{{ route('administrators') }}"> Administradores </a></li>
-                <li class="nav-item"> <a class="nav-link" href="#"> Clientes </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('customersMk') }}"> Clientes </a></li>
                 @endauth
               </ul>
             </div>

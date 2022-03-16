@@ -31,6 +31,8 @@ Route::get('/backend/administrators', function () {
     return view('auth.register');
 })->name('administrators')->middleware('auth');
 
+
+
 //view admins 
 Route::get('/backend/administrators/show', function () {
     return view('dashboard.pages.admin.show');
@@ -78,6 +80,7 @@ Route::get('/backend/logo/',
 
 
 
+
 //show styles form
 //Route::get('/backend/styles', function () {
  //   return view('dashboard.pages.styles_portal.styles');
@@ -117,3 +120,6 @@ Route::post('/backend/images', 'ImagenController@uploadImg')->name('upimages');
 Route::get('/', 'ImagenController@showimgCustomer')->name('site');
 
 Route::post('/addCustomer', 'CustomerController@addCustomer')->name('addCustomer');
+
+
+Route::get('backend/customers', 'HomeController@getmkUsers')->name('customersMk');

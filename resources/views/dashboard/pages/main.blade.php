@@ -2,7 +2,7 @@
 @extends('dashboard.app')
 
 @section('content')
-<div class="row">
+<div class="row container w-50">
     <div class="col-sm-12">
         <div class="statistics-details d-flex align-items-center justify-content-between">
 
@@ -18,18 +18,23 @@
             </div>
 
             <div>
-                <p class="statistics-title">Page Views</p>
-                <h3 class="rate-percentage">7,682</h3>
-                <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>+0.1%</span></p>
+                <a href="{{ route('customersMk') }}" type="button" class="btn btn-primary btn-lg btn-block">
+                    <b><i class="ti-link"></i>
+                    @foreach($usermk as $users)
+                    
+                    @endforeach 
+                    {{ count($usermk)  }}
+                    Usuarios de mikrotik conectados
+                    </b>
+                </a>
             </div>
 
-            <div>
-                <p class="statistics-title">New Sessions</p>
-                <h3 class="rate-percentage">68.8</h3>
-                <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>68.8</span></p>
-            </div>
+
+          
 
         </div>
     </div>
 </div>
+
+
 @endsection

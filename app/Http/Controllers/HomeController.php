@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Mikrotik\Connection;
 
 class HomeController extends Controller
 {
@@ -24,9 +25,29 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $API =new Connection();
+        if ($API->connect('45.179.197.61', 'hotspot', '12345')) {
+        $usermk = $API->comm("/ip/hotspot/active/getall");
+
+        //dd($users['user']);
+        
+        }
+        
         $user = User::all();
-        return view('dashboard.pages.main' , ['user'=> $user]);
+      //return view('dashboard.pages.main' , ['user'=> $user]);
+        return view('dashboard.pages.main' )->with('user',$user)->with('usermk',$usermk);
         //return view('dashboard.pages.main');
         //return view('home');
+    }
+
+    public function getmkUsers(){
+        $API =new Connection();
+        if ($API->connect('45.179.197.61', 'hotspot', '12345')) {
+        $usermk = $API->comm("/ip/hotspot/active/getall");
+
+        //dd($users['user']);
+        
+        }
+        return view('dashboard.pages.customer.customer' , ['usermk'=> $usermk]);
     }
 }
