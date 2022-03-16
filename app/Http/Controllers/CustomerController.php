@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Mikrotik\Connection;
 
 class CustomerController extends Controller
 {
@@ -20,10 +21,30 @@ class CustomerController extends Controller
             $customer->name = $incomming['name'];
             $customer->phone = $incomming['phone'];
             $customer->email = $incomming['email'];
-            $customer->save();
+    #        $customer->save();
             alert()->success('Usuario creado','Usuario creado exitosamente');
+             //Add user mk
+        
+            //Router API  conection
+            $API =new Connection();
+            $API->debug = true;
+            $ipMK='45.179.197.61'; 
+            $userMK= "hotspot";
+            $passwordMK = "12345";
+
+            if ($API->connect($ipMK, $userMK, $passwordMK)) { #Conection API
+                #Add user in hotspot
+                $ARRAY2 = $API->comm("/ip/hotspot/user/add", array(
+                "name" => 'prueba',
+                "password" => 'prueba',
+              //  "profile" => $incoming['description'],
+                "comment" => 'hola mundo',
+                "server" => "hotspot1"));
+            }
            return back();
             //dd("Usuario agregado exitosamente");
+
+            
            
         }catch (ClientException $e) {
             //Log::error('payload' . $payload . 'Codigo de error : ' . $response->getStatusCode());
@@ -33,23 +54,6 @@ class CustomerController extends Controller
         }
 
         
-        //Add user mk
-        
-            //Router API  conection
-           /* $API =new Connection();
-            $API->debug = true;
-            $ipMK='45.179.197.61'; 
-            $userMK= "developerapi";
-            $passwordMK = "123456789";
-
-            if ($API->connect($ipMK, $userMK, $passwordMK)) { #Conection API
-                #Add user in hotspot
-                $ARRAY2 = $API->comm("/ip/hotspot/user/add", array(
-                "name" => $incoming['user'],
-                "password" => $incoming['password'],
-                "profile" => $incoming['description'],
-                "comment" => $incoming['description'],
-                "server" => "hotspot1"));
-            }*/
+       
     }
 }

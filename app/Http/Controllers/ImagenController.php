@@ -8,6 +8,7 @@ use App\Models\Styles;
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Logos;
+use App\Mikrotik\Connection;
 
 class ImagenController extends Controller
 {
@@ -50,6 +51,8 @@ class ImagenController extends Controller
             Alert::success('Imagen Actualizada con exito');
         
     }
+
+    
 
     return back();
 
