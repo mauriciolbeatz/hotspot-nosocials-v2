@@ -56,6 +56,9 @@ Route::patch('/backend/administrators/update/user/{id}',
 Route::delete('/backend/administrators/delete/user/{id}', 
 'auth\RegisterController@destroy')->name('deleteuser');
 
+//admin count 
+Route::get('/backend/home/', 'auth\RegisterController@admin_count');
+
 /** end administrators */
 
 

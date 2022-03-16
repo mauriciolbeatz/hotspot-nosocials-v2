@@ -142,5 +142,9 @@ class RegisterController extends Controller
         return redirect()->route('showadmin');
     }
 
-
+    //admin count
+    public function admin_count(){
+        $user = User::all();
+        return view('home' , ['user'=> $user]);
+    }
 }
