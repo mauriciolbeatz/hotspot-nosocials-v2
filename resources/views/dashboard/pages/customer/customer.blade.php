@@ -6,7 +6,7 @@
 <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Bordered table</h4>
+                  <h4 class="card-title">Usuarios Activos HOTSPOT</h4>
                   <div class="table-responsive ">
                 <table id="datatable" class="table table-striped table-hover">
   <thead>
@@ -26,8 +26,8 @@
       <td scope="row">{{$i++}}</td>
       <td class="py-1">{{ $users['user'] }}</td>
       <td>{{ $users['uptime'] }}</td>
-      <td>{{ ($users['bytes-in']/ 10000)*1  }} K</td>
-      <td>{{ ($users['bytes-out']/ 10000)*1 }} K</td>
+      <td>{{ ($users['bytes-in']/ 100)*1  }} MB</td>
+      <td>{{ ($users['bytes-out']/ 10000)*1 }} MB</td>
     </tr>
 @endforeach 
   </tbody>

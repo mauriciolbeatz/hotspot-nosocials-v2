@@ -19,19 +19,15 @@
 
             <div>
                 <a href="{{ route('customersMk') }}" type="button" class="btn btn-primary btn-lg btn-block">
-                    <b><i class="ti-link"></i>
+                    <b><i class="ti-user"> </i>
                     @foreach($usermk as $users)
                     
                     @endforeach 
-                    {{ count($usermk)  }}
-                    Usuarios de mikrotik conectados
+                    {{ count($usermk )  }}
+                    Usuarios Activos en HOTSPOT
                     </b>
                 </a>
             </div>
-
-
-          
-
         </div>
     </div>
 </div>
