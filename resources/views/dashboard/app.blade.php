@@ -236,4 +236,23 @@
   @include('sweetalert::alert')
 </body>
 
+<style type="text/css">
+    @keyframes slideInFromLeft {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#bajar {  
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  
+  background: #f4f5f7;
+
+}
+  </style>
+
 </html>

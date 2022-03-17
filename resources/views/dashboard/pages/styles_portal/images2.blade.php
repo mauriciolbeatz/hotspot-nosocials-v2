@@ -8,7 +8,7 @@
 
 @enderror
 
-<div class="col-lg-12 grid-margin stretch-card">
+<div id="bajar" class="col-lg-12 grid-margin stretch-card">
   <div class="card">
     <div class="card-body">
       <h4 class="card-title">Cambio de imagenes</h4>
