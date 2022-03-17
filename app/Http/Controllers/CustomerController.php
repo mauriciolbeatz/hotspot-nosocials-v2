@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Customer;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Mikrotik\Connection;
+use Illuminate\Support\Facades\Mail;
 
 class CustomerController extends Controller
 {
@@ -21,7 +22,7 @@ class CustomerController extends Controller
             $customer->name = $incomming['name'];
             $customer->phone = $incomming['phone'];
             $customer->email = $incomming['email'];
-    #        $customer->save();
+            $customer->save();
             
              //Add user mk
         
@@ -32,15 +33,24 @@ class CustomerController extends Controller
             $userMK= "hotspot";
             $passwordMK = "12345";
 
-            if ($API->connect($ipMK, $userMK, $passwordMK)) { #Conection API
+            #if ($API->connect($ipMK, $userMK, $passwordMK)) { #Conection API
                 #Add user in hotspot
-                $ARRAY2 = $API->comm("/ip/hotspot/user/add", array(
-                "name" => $incomming['email'],
-                "password" => $incomming['email'],
+             #   $ARRAY2 = $API->comm("/ip/hotspot/user/add", array(
+             #   "name" => $incomming['email'],
+             #   "password" => $incomming['email'],
               //  "profile" => $incoming['description'],
-                "comment" => 'Hotspot tuscania',
-                "server" => "hotspot1"));
-            }
+             #   "comment" => 'Hotspot tuscania',
+             #   "server" => "hotspot1"));
+            #}
+
+            //Send Email 
+		    $data = ['name'=>$incomming['name'] ,  'email'=>$incomming['email'],'password'=>$incomming['email']];
+            $user['to']=$incomming['email'];
+            Mail::send("mail.template",$data,function($messages) use ($user){
+                $messages->to($user['to']);
+                $messages->subject('Cuenta Hotspot Beenet El Salvador');
+            });
+
             alert()->success('Usuario creado','Usuario creado exitosamente');
            return back();
             //dd("Usuario agregado exitosamente");
