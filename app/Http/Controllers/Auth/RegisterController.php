@@ -116,14 +116,14 @@ class RegisterController extends Controller
         //validate fields 
          $request->validate([
             'name' => ['required', 'string', 'max:255', 'min:3'],
-            'email' => 'required|email|unique:users,email,'.$user->id,
+            'email' => 'required|email|unique:users,email,'.$user->id, #If the email was changed, it will verify that it does not exist 
         ]);
 
         $user->name = $request->name;
         $user->email = $request->email;
 
-        //In case of changing the password, it will save it in the database 
-        //and validate the entered email does not exist. 
+        //In case of changing the password, it will be updated in the database 
+        //and at the same time validate the password 
         if(!$incoming['password'] == null){
            $request->validate(['password' => ['required', 'string', 'min:8', 'confirmed'],]);
            $user->password = Hash::make($request->password);
@@ -142,9 +142,5 @@ class RegisterController extends Controller
         return redirect()->route('showadmin');
     }
 
-    //admin count
-    public function admin_count(){
-        $user = User::all();
-        return view('home' , ['user'=> $user]);
-    }
+    
 }

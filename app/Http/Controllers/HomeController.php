@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Customer;
 use App\Mikrotik\Connection;
 
 class HomeController extends Controller
@@ -34,8 +35,9 @@ class HomeController extends Controller
         }
         
         $user = User::all();
+        $customer = Customer::all();
       //return view('dashboard.pages.main' , ['user'=> $user]);
-        return view('dashboard.pages.main' )->with('user',$user)->with('usermk',$usermk);
+        return view('dashboard.pages.main' )->with('user',$user)->with('usermk',$usermk)->with('customer',$customer);
         //return view('dashboard.pages.main');
         //return view('home');
     }

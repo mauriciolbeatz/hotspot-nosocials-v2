@@ -50,7 +50,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item dropdown d-none d-lg-block user-dropdown">
             <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-            @guest @if (Route::has('login'))  @endif @else {{ Auth::user()->name }} @endguest <img class="img-xs rounded-circle" src="{{asset('dashboard/images/user.png')}}" alt="Profile image"> </a>
+              @guest @if (Route::has('login')) @endif @else {{ Auth::user()->name }} @endguest <img class="img-xs rounded-circle" src="{{asset('dashboard/images/user.png')}}" alt="Profile image"> </a>
             @guest @if (Route::has('login')) @endif @else
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -95,7 +95,7 @@
             </a>
             @endauth
 
-        </li>
+          </li>
 
           <li class="nav-item nav-category">UI Elementos</li>
           <li class="nav-item">
@@ -115,11 +115,6 @@
                 @auth
                 <li class="nav-item"> <a class="nav-link" href="{{route('styles')}}">Estilo base</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('logo') }}">Logotipos</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('show-img')}}">Primer Slider</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('show-img2')}}">Segundo Slider</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('show-img4')}}">Tercer Slider</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('show-img3')}}">Cuarto Slider</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Redes Sociales</a></li>
                 @endauth
 
               </ul>
@@ -141,8 +136,10 @@
                 @endguest
 
                 @auth
-                <li class="nav-item"><a class="nav-link" href="#">Categorias</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Post</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('show-img')}}">Slider inicio</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('show-img2')}}">Slider centro</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('show-img4')}}">Slider con párrafo</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('show-img3')}}">Slider final</a></li>
                 @endauth
 
               </ul>
@@ -166,7 +163,7 @@
 
                 @auth
                 <li class="nav-item"> <a class="nav-link" href="{{ route('administrators') }}"> Administradores </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('customersMk') }}"> Clientes </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('customersMk') }}"> Clientes activos</a></li>
                 @endauth
               </ul>
             </div>
@@ -218,18 +215,20 @@
   <script src="{{asset('dashboard/js/settings.js')}}"></script>
   <script src="{{asset('dashboard/js/todolist.js')}}"></script>
 
+  <!--Links for the operation of the datatable -->
   <script src="{{asset('dashboard/js/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('dashboard/js/dataTables.bootstrap5.min.js')}}"></script>
-
+  
+  <!-- script to show the datatable with the language in Spanish  -->
   <script>
     $(document).ready(function() {
-    $('#datatable').DataTable( {
+      $('#datatable').DataTable({
         "language": {
-            "url": "{{asset('dashboard/json/esdatatable.json')}}"
+          "url": "{{asset('dashboard/json/esdatatable.json')}}"
         }
-    } );
-} );
-</script>
+      });
+    });
+  </script>
 
   <!-- endinject -->
   <!-- Custom js for this page-->

@@ -40,26 +40,25 @@ Route::get('/backend/administrators/show', function () {
 
 //display administrator information 
 Route::get('/backend/administrators/show', 
-'auth\RegisterController@index')->name('showadmin');
+'Auth\RegisterController@index')->name('showadmin');
 
 //display a specific admin
 Route::get('/backend/administrators/update/{id}', 
-'auth\RegisterController@show')->name('updateadmin');
+'Auth\RegisterController@show')->name('updateadmin');
 
 //add admin
 Route::post('/backend/administrators/register', 
-'auth\RegisterController@store')->name('addadmin');
+'Auth\RegisterController@store')->name('addadmin');
 
 //update admin
 Route::patch('/backend/administrators/update/user/{id}', 
-'auth\RegisterController@update')->name('updateduser');
+'Auth\RegisterController@update')->name('updateduser');
 
 //delete admin
 Route::delete('/backend/administrators/delete/user/{id}', 
-'auth\RegisterController@destroy')->name('deleteuser');
+'Auth\RegisterController@destroy')->name('deleteuser');
 
-//admin count 
-Route::get('/backend/home/', 'auth\RegisterController@admin_count');
+
 
 /** end administrators */
 

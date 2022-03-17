@@ -27,18 +27,19 @@ class LogoController extends Controller
 
             $date = Carbon::now();
             $datetime = $date->subHours(6); //change the time
-
+            
+            //This validation is useful if the image does not exist in the database, it will be saved, otherwise the image will be replaced. 
             if (!$list == null) {
                 \Illuminate\Support\Facades\File::delete(public_path('storage/logo/' . $list->file_path)); //delete specific image in storage 
                 $logo = Logos::find(1); //In row 1 will be updated 
                 $logo->updated_at = $datetime;
-                $logo->file_path = $file->hashName();
+                $logo->file_path = $file->hashName();//image name 
                 Alert::success('Éxito', 'Logo actualizado');
             } else {
                 $logo = new Logos();
                 $logo->name = 'logo';
                 $logo->created_at = $datetime;
-                $logo->file_path = $file->hashName();
+                $logo->file_path = $file->hashName();//image name 
                 Alert::success('Éxito', 'Logo registrado');
             }
             $logo->save();
@@ -46,15 +47,11 @@ class LogoController extends Controller
         }
     }
 
+    //show logo image on dashboard  
     public function index()
     {
         $logo = Logos::all();
         return view('dashboard.pages.login.show', ['logo' => $logo]);
     }
 
-    public function showlogo()
-    {
-        $logo = Logos::all();
-        return view('customer.template' , ['logo' => $logo]);
-    }
 }
