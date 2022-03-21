@@ -17,6 +17,12 @@ class CustomerController extends Controller
         $incomming = $request->all();
        //dd($incomming = $request->all());
         try {
+
+            $email_validation =  Customer::where('email', '=', $request->input('email'))->first();
+            if($email_validation){
+                Alert::warning('Advertencia', 'El correo electrónico ya existe en la base de datos');
+                return redirect()->route('site');
+            }
             //Create customer in database
             $customer = new Customer;
             $customer->name = $incomming['name'];
@@ -33,15 +39,15 @@ class CustomerController extends Controller
             $userMK= "hotspot";
             $passwordMK = "12345";
 
-            #if ($API->connect($ipMK, $userMK, $passwordMK)) { #Conection API
+            if ($API->connect($ipMK, $userMK, $passwordMK)) { #Conection API
                 #Add user in hotspot
-             #   $ARRAY2 = $API->comm("/ip/hotspot/user/add", array(
-             #   "name" => $incomming['email'],
-             #   "password" => $incomming['email'],
+                $ARRAY2 = $API->comm("/ip/hotspot/user/add", array(
+                "name" => $incomming['email'],
+                "password" => $incomming['email'],
               //  "profile" => $incoming['description'],
-             #   "comment" => 'Hotspot tuscania',
-             #   "server" => "hotspot1"));
-            #}
+                "comment" => 'Hotspot tuscania',
+                "server" => "hotspot1"));
+            }
 
             //Send Email 
 		    $data = ['name'=>$incomming['name'] ,  'email'=>$incomming['email'],'password'=>$incomming['email']];

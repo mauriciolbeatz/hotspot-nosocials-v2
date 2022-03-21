@@ -516,7 +516,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{asset('customer//js/main.js')}}"></script>
-
+    @include('sweetalert::alert')
 </body>
 
 </html>
